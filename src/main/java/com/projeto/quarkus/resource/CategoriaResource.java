@@ -6,6 +6,7 @@ import org.jboss.logging.annotations.Pos;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -29,7 +30,7 @@ public class CategoriaResource {
 
     @POST
     @Transactional
-    public Categoria salvarCategoria(Categoria categoria) {
+    public Categoria salvarCategoria(@Valid Categoria categoria) {
         categoria.persist();
         return categoria;
     }
