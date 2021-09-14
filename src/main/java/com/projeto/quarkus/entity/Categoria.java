@@ -22,8 +22,4 @@ public class Categoria extends PanacheEntity {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public List<Categoria> listarCategorias() {
-        return listAll();
-    }
 }

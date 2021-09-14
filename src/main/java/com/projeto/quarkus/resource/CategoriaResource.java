@@ -1,8 +1,10 @@
 package com.projeto.quarkus.resource;
 
 import com.projeto.quarkus.entity.Categoria;
+import com.projeto.quarkus.repository.CategoriaRepository;
 import org.jboss.logging.annotations.Pos;
 
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,10 +19,12 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class CategoriaResource {
 
+    @Inject
+    private CategoriaRepository categoriaRepository;
+
     @GET
     public List<Categoria> listarCategorias() {
-        Categoria categoria = new Categoria();
-        return categoria.listarCategorias();
+        return categoriaRepository.listAll();
     }
 
     @POST
